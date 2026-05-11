@@ -21,8 +21,9 @@ namespace UwiTests.Controllers
                 return Ok(user.Id);
             }
 
-            return Ok(-1);
+            return Ok("Failure");
         }
+
 
         private User ImplAddNewUser(UserEnter userData)
         {

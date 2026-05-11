@@ -482,3 +482,5 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+UwiTests/Models/UwiTests/
