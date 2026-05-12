@@ -1,5 +1,8 @@
 
+using UwiTests;
+
 var builder = WebApplication.CreateBuilder(args);
+DataBase dataBase = new DataBase();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
