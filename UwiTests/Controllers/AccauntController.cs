@@ -11,13 +11,7 @@ namespace UwiTests.Controllers
         [HttpPost]
         public IActionResult AddNewUser([FromBody] Login login)
         {
-            var user = DataBase.Instance.IsHaveUser(login);
-            if (user != null)
-            {
-                return Ok(user);
-            }
-
-            user = DataBase.Instance.AddNewLogin(login);
+            var user = DataBase.Instance.AddNewLogin(login);
             return Ok(user);
         }
 
