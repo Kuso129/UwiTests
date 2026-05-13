@@ -14,6 +14,8 @@ namespace UwiTests
             _lastTestID = 0;
         }
 
+        // TESTS
+
         public TestData IsHaveTest(TestData data)
         {
             foreach (var test in Tests)
@@ -21,6 +23,18 @@ namespace UwiTests
                 if (test.Data.TestName == data.TestName && test.Data.CreatorId == data.CreatorId)
                 {
                     return test.Data;
+                }
+            }
+
+            return null;
+        }
+
+        public TestState IsHaveTest(int id)
+        {
+            foreach (var test in Tests) {
+                if (test.Data.TestId == id)
+                {
+                    return test;
                 }
             }
 
@@ -69,6 +83,41 @@ namespace UwiTests
             }
 
             return false;
+        }
+
+        // QUESTIONS
+        public bool AddTestQuestion(int testId, Question question)
+        {
+            var test = IsHaveTest(testId);
+            if (test == null)
+            {
+                Console.WriteLine($"Thare is no test to add questions {testId}.");
+                return false;
+            }
+
+            test.Questions.Add(question);
+
+            return true;
+        }
+
+        public Question[] GetTestQuestions(int id)
+        {
+            var test = IsHaveTest(id);
+            if (test == null)
+                return null;
+
+            return test.Questions.ToArray();
+        }
+
+        public bool DeleteTestQuestions(int id)
+        {
+            var test = IsHaveTest(id);
+            if (test == null)
+                return false;
+
+            test.Questions.Clear();
+
+            return true;
         }
 
     }

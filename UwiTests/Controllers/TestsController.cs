@@ -22,7 +22,7 @@ namespace UwiTests.Controllers
         }
 
         [HttpDelete]
-        public IActionResult DeleteTest(int id)
+        public IActionResult DeleteTest([FromQuery] int id)
         {
             return Ok(DataBase.Instance.DeleteTest(id));
         }

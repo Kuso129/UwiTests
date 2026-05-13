@@ -1,4 +1,5 @@
-﻿using UwiTests.Model;
+﻿using Microsoft.AspNetCore.Mvc;
+using UwiTests.Model;
 
 namespace UwiTests
 {
@@ -57,5 +58,11 @@ namespace UwiTests
         }
 
         public bool DeleteTest(int id) => TestsManager.DeleteTest(id);
+
+        // QUESTIONS
+        public bool AddTestQuestion(int testId, Question question) => TestsManager.AddTestQuestion(testId, question);
+        public Question[] GetTestQuestions(int id) => TestsManager.GetTestQuestions(id);    
+        public bool DeleteTestQuestions(int id) => TestsManager.DeleteTestQuestions(id);
+
     }
 }
