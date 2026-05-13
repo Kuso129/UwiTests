@@ -19,14 +19,8 @@ namespace UwiTests.Model
     public class Question
     {
         public string QuestionText { get; set; }
-        public string [] Answers { get; set; }
-        public int QuestionsAmount { get; set; }
         public int CorrectAnswerID { get; set; }
+        public List<string> Answers { get; set; } = new List<string>();
     }
 
-    public class QuestionRequest
-    {
-        public int TestId { get; private set; }
-        public Question Question { get; private set; }
-    }
 }
