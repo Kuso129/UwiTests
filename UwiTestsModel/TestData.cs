@@ -1,4 +1,3 @@
-using System.DateTime;
 
 namespace UwiTests.Model 
 {
@@ -19,9 +18,15 @@ namespace UwiTests.Model
 
     public class Question
     {
-        public string Question { get; set; }
+        public string QuestionText { get; set; }
         public string [] Answers { get; set; }
         public int QuestionsAmount { get; set; }
         public int CorrectAnswerID { get; set; }
+    }
+
+    public class QuestionRequest
+    {
+        public int TestId { get; private set; }
+        public Question Question { get; private set; }
     }
 }

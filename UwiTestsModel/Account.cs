@@ -3,7 +3,7 @@ namespace UwiTests.Model
 {
     public class Login 
     {
-        public string Login { get; set; }
+        public string UserLogin { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
     }
