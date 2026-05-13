@@ -9,6 +9,7 @@ namespace UwiTests
 
         public AccauntManager AccauntManager { get; private set; }
         public TestsManager TestsManager { get; private set; }
+        public StatisticsManager StatisticsManager { get; private set; }
 
         public DataBase()
         {
@@ -17,6 +18,7 @@ namespace UwiTests
 
             AccauntManager = new AccauntManager();
             TestsManager = new TestsManager();
+            StatisticsManager = new StatisticsManager();
         }
 
         // ACCAUNT
@@ -63,6 +65,10 @@ namespace UwiTests
         public bool AddTestQuestion(int testId, Question question) => TestsManager.AddTestQuestion(testId, question);
         public Question[] GetTestQuestions(int id) => TestsManager.GetTestQuestions(id);    
         public bool DeleteTestQuestions(int id) => TestsManager.DeleteTestQuestions(id);
+
+        // STATISTICS
+        public bool SetStatistics(int id, Statistics stats) => StatisticsManager.SetStatistics(id, stats);
+        public Statistics GetStatistics(int id) => StatisticsManager.GetStatistics(id);
 
     }
 }
