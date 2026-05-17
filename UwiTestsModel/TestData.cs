@@ -18,6 +18,7 @@ namespace UwiTests.Model
 
     public class Question
     {
+		public int TestId { get; set; }
         public string QuestionText { get; set; }
         public int CorrectAnswerID { get; set; }
         public List<string> Answers { get; set; } = new List<string>();
