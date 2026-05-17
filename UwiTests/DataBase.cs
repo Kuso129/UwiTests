@@ -62,12 +62,12 @@ namespace UwiTests
         public bool DeleteTest(int id) => TestsManager.DeleteTest(id);
 
         // QUESTIONS
-        public bool AddTestQuestion(int testId, Question question) => TestsManager.AddTestQuestion(testId, question);
+        public bool AddTestQuestion(Question question) => TestsManager.AddTestQuestion(question);
         public Question[] GetTestQuestions(int id) => TestsManager.GetTestQuestions(id);    
         public bool DeleteTestQuestions(int id) => TestsManager.DeleteTestQuestions(id);
 
         // STATISTICS
-        public bool SetStatistics(int id, Statistics stats) => StatisticsManager.SetStatistics(id, stats);
+        public bool SetStatistics(Statistics stats) => StatisticsManager.SetStatistics(stats);
         public Statistics GetStatistics(int id) => StatisticsManager.GetStatistics(id);
 
     }

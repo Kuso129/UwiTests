@@ -86,12 +86,12 @@ namespace UwiTests
         }
 
         // QUESTIONS
-        public bool AddTestQuestion(int testId, Question question)
+        public bool AddTestQuestion(Question question)
         {
-            var test = IsHaveTest(testId);
+            var test = IsHaveTest(question.TestId);
             if (test == null)
             {
-                Console.WriteLine($"Thare is no test to add questions {testId}.");
+                Console.WriteLine($"Thare is no test to add questions {question.TestId}.");
                 return false;
             }
 

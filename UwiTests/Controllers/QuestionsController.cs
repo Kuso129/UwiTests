@@ -8,10 +8,10 @@ namespace UwiTests.Controllers
     public class QuestionsController : ControllerBase
     {
         [HttpPost]
-        public IActionResult AddTestQuestion([FromQuery] int testId, [FromBody] Question question)
+        public IActionResult AddTestQuestion([FromBody] Question question)
         {
-            Console.WriteLine($"Questions setup {testId}");
-            return Ok(DataBase.Instance.AddTestQuestion(testId, question));
+            Console.WriteLine($"Questions setup {question.TestId}");
+            return Ok(DataBase.Instance.AddTestQuestion(question));
         }
 
         [HttpGet]

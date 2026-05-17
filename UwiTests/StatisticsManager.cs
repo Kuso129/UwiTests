@@ -28,16 +28,16 @@ namespace UwiTests
             return null;
         }
 
-        public bool SetStatistics(int id, Statistics stats)
+        public bool SetStatistics(Statistics stats)
         {
-            if (!DataBase.Instance.IsHaveUserID(id))
+            if (!DataBase.Instance.IsHaveUserID(stats.UserID))
                 return false;
 
-            var stat = FindStateId(id);
+            var stat = FindStateId(stats.UserID);
             if (stat == null)
             {
                 StatisticsState state = new StatisticsState();
-                state.UserId = id;
+                state.UserId = stats.UserID;
                 state.Statistics = stats;
                 Stats.Add(state);
             }

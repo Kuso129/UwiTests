@@ -8,10 +8,10 @@ namespace UwiTests.Controllers
     public class StatisticsController : ControllerBase
     {
         [HttpPost]
-        public IActionResult SetStatistics([FromQuery] int userId, [FromBody] Statistics data)
+        public IActionResult SetStatistics([FromBody] Statistics data)
         {
-            Console.WriteLine($"Statistics setup {userId}.");
-            return Ok(DataBase.Instance.SetStatistics(userId, data));
+            Console.WriteLine($"Statistics setup {data.UserID}.");
+            return Ok(DataBase.Instance.SetStatistics(data));
         }
 
         [HttpGet]
