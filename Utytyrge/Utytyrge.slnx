@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="../TestDataTest/TestDataTest.csproj" Id="0eb8ec49-ded8-4af3-bc50-1f081b6bc154" />
+  <Project Path="../UserTest/UserTest.csproj" Id="f8bbddb5-1d20-4c30-a9ac-0623f0aa1300" />
   <Project Path="Utytyrge.csproj" />
 </Solution>
