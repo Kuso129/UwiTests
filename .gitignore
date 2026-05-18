@@ -484,3 +484,4 @@ FodyWeavers.xsd
 *.msp
 
 UwiTests/Models/UwiTests/
+UwiDataParser/Models/UwiTests/
