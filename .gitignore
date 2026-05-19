@@ -502,3 +502,5 @@ FodyWeavers.xsd
 *.msp
 UserTest/ext
 TestDataTest/ext
+QuestionTest/ext
+VataTest/ext
