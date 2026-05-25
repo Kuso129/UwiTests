@@ -1,0 +1,13 @@
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\bin\Debug\UwiTests.exe.config
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\bin\Debug\UwiTests.exe
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\bin\Debug\UwiTests.pdb
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.csproj.AssemblyReference.cache
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.Properties.Resources.resources
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.csproj.GenerateResource.cache
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.csproj.CoreCompileInputs.cache
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.exe
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.pdb
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.exe.config
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.Login.resources
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.Tityl.resources
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.Registrate.resources
