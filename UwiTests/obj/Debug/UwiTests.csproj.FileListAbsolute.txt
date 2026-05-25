@@ -13,3 +13,7 @@ C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.Tityl.resources
 C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.Registrate.resources
 C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.MainForm.resources
 C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.Start.resources
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.AccountInfoForm.resources
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.CreateTestForm.resources
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.TestsMainForm.resources
+C:\Users\Bolt\Desktop\UwiTests\UwiTests\obj\Debug\UwiTests.Client.TestsMainForm.resources

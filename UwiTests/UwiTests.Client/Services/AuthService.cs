@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UwiTests.Model;
 
-namespace UwiTests.Services
+namespace UwiTests.Services  // ← ВАЖНО: это пространство имён
 {
     public class AuthService
     {
@@ -49,10 +49,7 @@ namespace UwiTests.Services
                 };
 
                 var created = await _userRepository.CreateUser(newUser);
-                if (created != null)
-                {
-                    return true;
-                }
+                return created != null;
             }
             catch (Exception ex)
             {

@@ -17,11 +17,12 @@ namespace UwiTests
         private Button _btnLogout;
         private Label _lblWelcome;
 
+        // Конструктор с 2 параметрами
         public TestsMainForm(MainForm mainForm, AuthService authService)
         {
-            InitializeComponent();
             _mainForm = mainForm;
             _authService = authService;
+            InitializeComponent();
             SetupUI();
             LoadTests();
         }
@@ -32,7 +33,9 @@ namespace UwiTests
 
             _lblWelcome = new Label
             {
-                Text = $"Добро пожаловать, {_authService.GetCurrentUser()?.Login ?? "Пользователь"}!",
+                Text = _authService?.GetCurrentUser()?.Login != null
+                    ? $"Добро пожаловать, {_authService.GetCurrentUser().Login}!"
+                    : "Добро пожаловать!",
                 Font = new Font("Mistral", 28),
                 ForeColor = Color.FromArgb(225, 91, 149),
                 Location = new Point(30, 20),
@@ -47,7 +50,8 @@ namespace UwiTests
                 Location = new Point(30, 80),
                 FlatStyle = FlatStyle.Flat
             };
-            _btnAccountInfo.Click += (s, e) => _mainForm.ShowAccountInfoForm();
+            if (_mainForm != null)
+                _btnAccountInfo.Click += (s, e) => _mainForm.ShowAccountInfoForm();
 
             _btnCreateTest = new Button
             {
@@ -57,7 +61,8 @@ namespace UwiTests
                 Location = new Point(190, 80),
                 FlatStyle = FlatStyle.Flat
             };
-            _btnCreateTest.Click += (s, e) => _mainForm.ShowCreateTestForm();
+            if (_mainForm != null)
+                _btnCreateTest.Click += (s, e) => _mainForm.ShowCreateTestForm();
 
             _btnLogout = new Button
             {
@@ -67,7 +72,8 @@ namespace UwiTests
                 Location = new Point(this.Width - 130, 20),
                 FlatStyle = FlatStyle.Flat
             };
-            _btnLogout.Click += (s, e) => _mainForm.LogoutAndShowStart();
+            if (_mainForm != null)
+                _btnLogout.Click += (s, e) => _mainForm.LogoutAndShowStart();
 
             _testsPanel = new FlowLayoutPanel
             {
@@ -93,6 +99,8 @@ namespace UwiTests
 
         private async void LoadTests()
         {
+            if (_authService == null) return;
+
             _testsPanel.Controls.Clear();
             var loadingLabel = new Label { Text = "Загрузка тестов...", AutoSize = true };
             _testsPanel.Controls.Add(loadingLabel);
@@ -170,7 +178,7 @@ namespace UwiTests
             };
             btnTake.Click += async (s, e) =>
             {
-                MessageBox.Show($"Начать тест: {test.TestName}", "Информация");
+                MessageBox.Show($"Начинаем тест: {test.TestName}", "Информация");
             };
 
             card.Controls.Add(lblName);
@@ -187,13 +195,5 @@ namespace UwiTests
         }
 
         public void RefreshTests() => LoadTests();
-
-        private void InitializeComponent()
-        {
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 500);
-            this.Text = "Главная - Тесты";
-        }
     }
 }

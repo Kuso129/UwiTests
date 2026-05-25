@@ -5,7 +5,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
 using UwiTests.Model;
-using UwiTests.Client; 
+using UwiTests.Client;
 
 namespace UwiTests.Services
 {
@@ -123,6 +123,40 @@ namespace UwiTests.Services
                 System.Diagnostics.Debug.WriteLine($"GetStatistics error: {ex.Message}");
             }
             return null;
+        }
+        public async Task<bool> DeleteTest(int testId)
+        {
+            try
+            {
+                var response = await _http.DeleteAsync($"/tests?id={testId}");
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"DeleteTest error: {ex.Message}");
+                return false;
+            }
+        }
+
+        public async Task<List<Question>> GetTestQuestions(int testId)
+        {
+            try
+            {
+                var response = await _http.GetAsync($"/questions?testId={testId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    return JsonSerializer.Deserialize<List<Question>>(json, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"GetTestQuestions error: {ex.Message}");
+            }
+            return new List<Question>();
         }
     }
 }

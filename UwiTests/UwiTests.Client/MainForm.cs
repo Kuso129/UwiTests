@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using UwiTests.Services;
 
 namespace UwiTests
 {
@@ -20,7 +21,7 @@ namespace UwiTests
         {
             InitializeComponent();
             var httpClient = new System.Net.Http.HttpClient();
-            httpClient.BaseAddress = new Uri("http://localhost:5145"); // URL вашего API
+            httpClient.BaseAddress = new Uri("http://localhost:5145");
             _userRepository = new UserRepository(httpClient);
             _authService = new AuthService(_userRepository);
 
@@ -82,11 +83,14 @@ namespace UwiTests
 
         public AuthService GetAuthService() => _authService;
 
-        // Выход на стартовую форму (сброс авторизации)
+        // ★★★★★ ДОБАВЬТЕ ЭТОТ МЕТОД ★★★★★
+        /// <summary>
+        /// Выход из аккаунта и возврат на стартовую форму
+        /// </summary>
         public void LogoutAndShowStart()
         {
             _authService.Logout();
             ShowStartForm();
         }
     }
-}}
+}

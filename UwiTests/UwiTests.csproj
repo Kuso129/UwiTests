@@ -80,22 +80,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountInfoForm.cs">
+    <Compile Include="UwiTests.Client\AccountInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AccountInfoForm.Designer.cs">
+    <Compile Include="UwiTests.Client\AccountInfoForm.Designer.cs">
       <DependentUpon>AccountInfoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateTestForm.cs">
+    <Compile Include="UwiTests.Client\CreateTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateTestForm.Designer.cs">
+    <Compile Include="UwiTests.Client\CreateTestForm.Designer.cs">
       <DependentUpon>CreateTestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestsMainForm.cs">
+    <Compile Include="UwiTests.Client\TestsMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TestsMainForm.Designer.cs">
+    <Compile Include="UwiTests.Client\TestsMainForm.Designer.cs">
       <DependentUpon>TestsMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UwiTests.Client\Client\ApiClient.cs" />
@@ -128,13 +128,13 @@
     <Compile Include="UwiTests.Client\Start.Designer.cs">
       <DependentUpon>Start.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AccountInfoForm.resx">
+    <EmbeddedResource Include="UwiTests.Client\AccountInfoForm.resx">
       <DependentUpon>AccountInfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateTestForm.resx">
+    <EmbeddedResource Include="UwiTests.Client\CreateTestForm.resx">
       <DependentUpon>CreateTestForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TestsMainForm.resx">
+    <EmbeddedResource Include="UwiTests.Client\TestsMainForm.resx">
       <DependentUpon>TestsMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UwiTests.Client\Login.resx">
@@ -158,6 +158,7 @@
     <EmbeddedResource Include="UwiTests.Client\Start.resx">
       <DependentUpon>Start.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="UwiTests.Client\packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
