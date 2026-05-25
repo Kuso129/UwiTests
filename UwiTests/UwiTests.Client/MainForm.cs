@@ -1,9 +1,5 @@
-﻿
-using System;
-using System.Net.Http;
+﻿using System;
 using System.Windows.Forms;
-using UwiTests.Repositories;
-using UwiTests.Services;
 
 namespace UwiTests
 {
@@ -13,6 +9,9 @@ namespace UwiTests
         private Start _startForm;
         private Login _loginForm;
         private Registrate _registrateForm;
+        private TestsMainForm _testsMainForm;
+        private AccountInfoForm _accountInfoForm;
+        private CreateTestForm _createTestForm;
 
         private readonly AuthService _authService;
         private readonly IUserRepository _userRepository;
@@ -20,7 +19,8 @@ namespace UwiTests
         public MainForm()
         {
             InitializeComponent();
-            var httpClient = new HttpClient();
+            var httpClient = new System.Net.Http.HttpClient();
+            httpClient.BaseAddress = new Uri("http://localhost:5145"); // URL вашего API
             _userRepository = new UserRepository(httpClient);
             _authService = new AuthService(_userRepository);
 
@@ -33,12 +33,20 @@ namespace UwiTests
             _startForm = new Start(this);
             _loginForm = new Login(this, _authService);
             _registrateForm = new Registrate(this, _authService);
+            _testsMainForm = new TestsMainForm(this, _authService);
+            _accountInfoForm = new AccountInfoForm(this, _authService);
+            _createTestForm = new CreateTestForm(this, _authService);
 
             ConfigureForm(_startForm);
             ConfigureForm(_loginForm);
             ConfigureForm(_registrateForm);
+            ConfigureForm(_testsMainForm);
+            ConfigureForm(_accountInfoForm);
+            ConfigureForm(_createTestForm);
 
-            // Добавляем в правильном порядке
+            this.Controls.Add(_createTestForm);
+            this.Controls.Add(_accountInfoForm);
+            this.Controls.Add(_testsMainForm);
             this.Controls.Add(_registrateForm);
             this.Controls.Add(_loginForm);
             this.Controls.Add(_startForm);
@@ -55,6 +63,9 @@ namespace UwiTests
         public void ShowStartForm() => ShowForm(_startForm);
         public void ShowLoginForm() => ShowForm(_loginForm);
         public void ShowRegistrateForm() => ShowForm(_registrateForm);
+        public void ShowTestsMainForm() => ShowForm(_testsMainForm);
+        public void ShowAccountInfoForm() => ShowForm(_accountInfoForm);
+        public void ShowCreateTestForm() => ShowForm(_createTestForm);
 
         private void ShowForm(Form formToShow)
         {
@@ -66,11 +77,16 @@ namespace UwiTests
 
             _currentForm = formToShow;
             _currentForm.Visible = true;
-            _currentForm.Show();
             _currentForm.BringToFront();
         }
 
-        // Доступ к сервису
         public AuthService GetAuthService() => _authService;
+
+        // Выход на стартовую форму (сброс авторизации)
+        public void LogoutAndShowStart()
+        {
+            _authService.Logout();
+            ShowStartForm();
+        }
     }
-}
+}}

@@ -15,13 +15,16 @@ namespace UwiTests
             InitializeComponent();
             _mainForm = mainForm;
             _authService = authService;
+
+            this.btnRegistrate.Click += new EventHandler(this.btnRegistrate_Click);
+            this.btnBack.Click += new EventHandler(this.btnBack_Click);
         }
 
         private async void btnRegistrate_Click(object sender, EventArgs e)
         {
-            string login = txtLogin.Text;
-            string password = txtPassword.Text;
-            string confirmPassword = txtConfirmPassword.Text;
+            string login = this.txtLogin.Text;
+            string password = this.txtPassword.Text;
+            string confirmPassword = this.txtConfirmPassword?.Text ?? password; 
 
             // Валидация
             if (string.IsNullOrEmpty(login))
@@ -56,7 +59,8 @@ namespace UwiTests
                 return;
             }
 
-            if (password != confirmPassword)
+            // Если есть поле подтверждения пароля
+            if (this.txtConfirmPassword != null && password != confirmPassword)
             {
                 MessageBox.Show("Пароли не совпадают", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -81,7 +85,7 @@ namespace UwiTests
                     // Очистка полей
                     txtLogin.Clear();
                     txtPassword.Clear();
-                    txtConfirmPassword.Clear();
+                    if (txtConfirmPassword != null) txtConfirmPassword.Clear();
 
                     // Переход на форму входа
                     _mainForm.ShowLoginForm();
@@ -106,6 +110,12 @@ namespace UwiTests
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            // Очистка полей
+            txtLogin.Clear();
+            txtPassword.Clear();
+            if (txtConfirmPassword != null) txtConfirmPassword.Clear();
+
+            // Возврат на стартовую форму
             _mainForm.ShowStartForm();
         }
     }

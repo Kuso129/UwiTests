@@ -80,7 +80,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UwiTests.Client\ApiClient.cs" />
+    <Compile Include="AccountInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountInfoForm.Designer.cs">
+      <DependentUpon>AccountInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateTestForm.Designer.cs">
+      <DependentUpon>CreateTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestsMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestsMainForm.Designer.cs">
+      <DependentUpon>TestsMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UwiTests.Client\Client\ApiClient.cs" />
     <Compile Include="UwiTests.Client\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,12 +119,24 @@
     <Compile Include="UwiTests.Client\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="UwiTests.Client\Services\AuthService.cs" />
+    <Compile Include="UwiTests.Client\Services\IUserRepository.cs" />
+    <Compile Include="UwiTests.Client\Services\UserRepository.cs" />
     <Compile Include="UwiTests.Client\Start.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UwiTests.Client\Start.Designer.cs">
       <DependentUpon>Start.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AccountInfoForm.resx">
+      <DependentUpon>AccountInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateTestForm.resx">
+      <DependentUpon>CreateTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestsMainForm.resx">
+      <DependentUpon>TestsMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UwiTests.Client\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

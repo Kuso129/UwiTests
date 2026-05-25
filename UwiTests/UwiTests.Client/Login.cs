@@ -15,12 +15,15 @@ namespace UwiTests
             InitializeComponent();
             _mainForm = mainForm;
             _authService = authService;
+
+            this.button2.Click += new EventHandler(this.btnLogin_Click);
+            this.button1.Click += new EventHandler(this.btnBack_Click);
         }
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
-            string login = txtLogin.Text;
-            string password = txtPassword.Text;
+            string login = this.textBox2.Text;  // textBox2 - поле для логина
+            string password = this.textBox1.Text; // textBox1 - поле для пароля
 
             if (string.IsNullOrEmpty(login))
             {
@@ -36,8 +39,8 @@ namespace UwiTests
                 return;
             }
 
-            btnLogin.Enabled = false;
-            btnLogin.Text = "Вход...";
+            button2.Enabled = false;
+            button2.Text = "Вход...";
 
             try
             {
@@ -51,12 +54,12 @@ namespace UwiTests
                     MessageBox.Show($"Вход выполнен успешно!\nРоль: {userRole}", "Успех",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Здесь переход на главное окно с тестами
-                    // _mainForm.ShowTestsForm();
-
                     // Очистка полей
-                    txtLogin.Clear();
-                    txtPassword.Clear();
+                    textBox2.Clear();
+                    textBox1.Clear();
+
+                    // Переход на главную форму с тестами
+                    _mainForm.ShowTestsMainForm();
                 }
                 else
                 {
@@ -71,13 +74,18 @@ namespace UwiTests
             }
             finally
             {
-                btnLogin.Enabled = true;
-                btnLogin.Text = "Войти";
+                button2.Enabled = true;
+                button2.Text = "Войти";
             }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            // Очистка полей
+            textBox2.Clear();
+            textBox1.Clear();
+
+            // Возврат на стартовую форму
             _mainForm.ShowStartForm();
         }
     }

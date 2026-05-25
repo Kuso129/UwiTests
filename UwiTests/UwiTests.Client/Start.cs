@@ -5,23 +5,24 @@ namespace UwiTests
 {
     public partial class Start : Form
     {
-        private MainForm mainForm;
+        private MainForm _mainForm;
 
         public Start(MainForm mainForm)
         {
             InitializeComponent();
-            this.mainForm = mainForm;
+            _mainForm = mainForm;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            mainForm.ShowLoginForm();
+            // Переход на форму регистрации
+            _mainForm.ShowRegistrateForm();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            mainForm.ShowRegistrateForm();
-           
+            // Переход на форму входа
+            _mainForm.ShowLoginForm();
         }
     }
 }
